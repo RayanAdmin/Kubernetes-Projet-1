@@ -1,0 +1,36 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mydb-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      env: production-db
+  template:
+    metadata:
+      name: mydb
+      labels:
+        env: production-db
+    spec:
+#      volumes:
+#        - name: db-files
+#          hostPath:
+#            path: /home/rayan/projet_01/site
+      containers:
+      - name: database
+        image: mysql:5.7
+        ports:
+        - containerPort: 3306
+#        volumeMounts:
+#          - mountPath: /tmp/test/
+#            name: db-files
+        env:
+          - name: MYSQL_ROOT_PASSWORD
+            valueFrom:
+              secretKeyRef:
+                name: mysql-pass
+                key: password
+          - name: MYSQL_DATABASE
+            value: db
+#        command: ["/bin/bash", "-c", "/usr/bin/mysql -h 127.0.0.1 -u root -predhat db < /tmp/test/create_table_sql.sql"]
