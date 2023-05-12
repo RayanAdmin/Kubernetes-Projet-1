@@ -24,7 +24,7 @@ cd kubernetes-php-mysql
 3. Modifiez le fichier "kustomization.yaml" pour définir le mot de passe de la base de données MySQL :
 ```
   literals:
-  - password=redhat"
+  - password=redhat
 ```
 Notez que le mot de passe par défaut est "redhat".
 
