@@ -4,11 +4,6 @@
 
 Ce projet a été réalisé pour créer une page web en PHP qui affiche le contenu d'une base de données MySQL. Pour cela, j'ai utilisé Kubernetes pour déployer un pod PHP et un pod MySQL, ainsi que deux services associés pour faciliter l'accès à l'application. Le fichier "kustomization.yaml" est utilisé pour partager le mot de passe de la base de données entre les deux pods.
 
-# Prérequis
-
-- Kubernetes doit être installé sur votre machine ou sur un cluster Kubernetes accessible.
-- Un accès à la ligne de commande Kubernetes.
-
 # Fonctionnement
 
 Une fois que vous avez déployé les ressources Kubernetes, deux pods sont créés : un pod PHP et un pod MySQL. Le fichier "kustomization.yaml" est utilisé pour partager le mot de passe de la base de données entre les deux pods.
@@ -19,6 +14,11 @@ De plus, deux services sont créés pour faciliter l'accès à l'application :
 
 - Le service PHP permet d'accéder à l'application PHP.
 - Le service MySQL permet d'accéder à la base de données MySQL.
+
+# Prérequis
+
+- Kubernetes doit être installé sur votre machine ou sur un cluster Kubernetes accessible.
+- Un accès à la ligne de commande Kubernetes.
 
 # Guide d'installation
 
