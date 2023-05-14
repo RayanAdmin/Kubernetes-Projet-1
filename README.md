@@ -39,7 +39,10 @@ cd kubernetes-php-mysql
 ```
 Notez que le mot de passe par défaut est "redhat".
 
-4. Déployez les ressources Kubernetes :
+# Déployment des ressources Kubernetes
+
+
+1. Déployer le fichier de Kustomization en utilisant le fichier suivant :
 ```
 kubectl apply -k .
 ```
