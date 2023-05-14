@@ -9,6 +9,17 @@ Ce projet a été réalisé pour créer une page web en PHP qui affiche le conte
 - Kubernetes doit être installé sur votre machine ou sur un cluster Kubernetes accessible.
 - Un accès à la ligne de commande Kubernetes.
 
+# Fonctionnement
+
+Une fois que vous avez déployé les ressources Kubernetes, deux pods sont créés : un pod PHP et un pod MySQL. Le fichier "kustomization.yaml" est utilisé pour partager le mot de passe de la base de données entre les deux pods.
+
+La page web en PHP affiche le contenu de la base de données MySQL. Sur cette page web, il y a un champ texte dans lequel vous pouvez rentrer un nom et le valider. Une fois que vous avez validé le nom, celui-ci est ajouté à la base de données et s'affiche sur la page PHP.
+
+De plus, deux services sont créés pour faciliter l'accès à l'application :
+
+- Le service PHP permet d'accéder à l'application PHP.
+- Le service MySQL permet d'accéder à la base de données MySQL.
+
 # Guide d'installation
 
 1. Clonez ce dépôt sur votre machine locale :
@@ -32,17 +43,6 @@ Notez que le mot de passe par défaut est "redhat".
 ```
 kubectl apply -k .
 ```
-
-# Fonctionnement
-
-Une fois que vous avez déployé les ressources Kubernetes, deux pods sont créés : un pod PHP et un pod MySQL. Le fichier "kustomization.yaml" est utilisé pour partager le mot de passe de la base de données entre les deux pods.
-
-La page web en PHP affiche le contenu de la base de données MySQL. Sur cette page web, il y a un champ texte dans lequel vous pouvez rentrer un nom et le valider. Une fois que vous avez validé le nom, celui-ci est ajouté à la base de données et s'affiche sur la page PHP.
-
-De plus, deux services sont créés pour faciliter l'accès à l'application :
-
-- Le service PHP permet d'accéder à l'application PHP.
-- Le service MySQL permet d'accéder à la base de données MySQL.
 
 # Conclusion
 
